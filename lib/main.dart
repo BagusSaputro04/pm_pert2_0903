@@ -60,6 +60,26 @@ class HomePage extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('This is Snackbar')));
             },
+          ),
+          IconButton(
+            icon: const Icon(Icons.navigate_next),
+            tooltip: 'halaman selanjutnya',
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return Scaffold(
+                  appBar: AppBar(
+                    title: const Text('halaman lanjut'),
+                  ),
+                  body: const Center(
+                    child: Text(
+                      'ini adalah halaman selanjutnya',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                );
+              }));
+            },
           )
         ],
       ),
