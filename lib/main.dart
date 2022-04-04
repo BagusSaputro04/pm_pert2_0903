@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
       ),
       appBar: AppBar(
         leading: InkWell(child: Icon(Icons.menu), onTap: () {}),
-        title: const Text('AppBAr Demo'),
+        title: const Text('AppBar Demo'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add_alert),
