@@ -22,11 +22,46 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("halamanku"),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.lightBlue,
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ListTile(
+              title: Text("pertama"),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text("kedua"),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text("ketiga"),
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
-      body: const Center(
-        child: Text("hai gays"),
+      appBar: AppBar(
+        leading: InkWell(child: Icon(Icons.menu), onTap: () {}),
+        title: const Text('AppBAr Demo'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('This is Snackbar')));
+            },
+          )
+        ],
       ),
     );
   }
