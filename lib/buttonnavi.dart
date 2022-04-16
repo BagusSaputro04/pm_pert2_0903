@@ -41,7 +41,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('tombol navigasi sederhana'),
+        title: const Text("Latihan Flutter"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Ini namanya snackbar")));
+            },
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Alert',
+          ),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.navigate_next)),
+        ],
       ),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
@@ -54,6 +65,34 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.greenAccent[200],
         onTap: _onItemTapped,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.cyanAccent),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.access_alarm),
+              title: const Text("Menu Pertama"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text("Menu Kedua"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.circle_sharp),
+              title: const Text("Menu Ketiga"),
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
